@@ -93,4 +93,39 @@ curl -X POST http://localhost:8081/v1/swift-codes \
            "address": "123 Test St"
          }'
 ```
+### **Delete a SWIFT Code**
+```http
+DELETE /v1/swift-codes/{swiftCode}
+```
+
+### **Import SWIFT Codes from a File**
+```bash
+curl -X POST http://localhost:8081/v1/swift-codes/import \
+     -F "file=@path/to/your/swift_codes.xlsx"
+```
+Replace `path/to/your/swift_codes.xlsx` with the actual file path.
+
+---
+## Testing the API
+After starting the application, you can test endpoints using:
+- **Postman**
+- **cURL**
+- Directly from the browser (`GET` requests only)
+
+Example test using **cURL**:
+```bash
+curl -X GET http://localhost:8081/v1/swift-codes/BCCSCLR1XXX
+```
+
+## Troubleshooting
+### **Database Issues**
+- Ensure PostgreSQL is running:
+  ```bash
+  docker ps
+  ```
+
+### **Port Conflicts**
+- If **port 8080 is already in use**, modify the `server.port` in `application.properties`.
+
+
 
