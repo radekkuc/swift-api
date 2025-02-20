@@ -5,7 +5,7 @@ This is a **Spring Boot application** that provides a REST API for managing SWIF
 ---
 
 ## Running the Project Locally
-### **1 Prerequisites**
+### **1. Prerequisites**
 Make sure you have installed:
 - [Java 17+](https://adoptopenjdk.net/)
 - [PostgreSQL](https://www.postgresql.org/)
@@ -19,7 +19,7 @@ Make sure you have installed:
   - `commons-io`
   - `poi-ooxml`
  
-### **2 Setup and Run the Database**
+### **2. Setup and Run the Database**
 1. Create a new PostgreSQL database:
    ```sql
    CREATE DATABASE swift_db;
@@ -40,35 +40,35 @@ Make sure you have installed:
    spring.datasource.password=1234
    ```
 
-### **3 Run the Application**
-Use Maven to build and start the project:
+### **3. Run the Application**
+  Use Maven to build and start the project:
   ```bash
   mvn clean package
   mvn spring-boot:run
-```
-Your API will be available at: **`http://localhost:8081`**
+  ```
+  Your API will be available at: **`http://localhost:8081`**
 
----
+  ---
 
 ## Running with Docker
-### **1 Prerequisites**
-Ensure you have installed:
+### **1. Prerequisites**
+  Ensure you have installed:
   - [Docker](https://www.docker.com/)
   - [Docker Compose](https://docs.docker.com/compose/install/)
 
-### **2 Build and Run with Docker**
+### **2. Build and Run with Docker**
   ```bash
   docker-compose up --build
   ```
-This starts **PostgreSQL** and **Swift API** in containers. The API will be available at **`http://localhost:8080`**.
+  This starts **PostgreSQL** and **Swift API** in containers. The API will be available at **`http://localhost:8080`**.
 
-### **3 Stopping the Containers**
-To stop the running containers, execute:
+### **3. Stopping the Containers**
+  To stop the running containers, execute:
   ```bash
   docker-compose down
   ```
 
----
+  ---
 
 ## API Endpoints
 ### **Retrieve SWIFT Code Details**
@@ -103,11 +103,11 @@ To stop the running containers, execute:
   curl -X POST http://localhost:8081/v1/swift-codes/import \
        -F "file=@path/to/your/swift_codes.xlsx"
   ```
-Replace `path/to/your/swift_codes.xlsx` with the actual file path.
+  Replace `path/to/your/swift_codes.xlsx` with the actual file path.
 
 ---
 ## Testing the API
-After starting the application, you can test endpoints using:
+  After starting the application, you can test endpoints using:
   - **Postman**
   - **cURL**
   - Directly from the browser (`GET` requests only)
@@ -119,13 +119,13 @@ Example test using **cURL**:
 
 ## Troubleshooting
 ### **Database Issues**
-- Ensure PostgreSQL is running:
+  - Ensure PostgreSQL is running:
   ```bash
   docker ps
   ```
 
 ### **Port Conflicts**
-- If **port 8080 is already in use**, modify the `server.port` in `application.properties`.
+  - If **port 8080 is already in use**, modify the `server.port` in `application.properties`.
 
 
 
