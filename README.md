@@ -19,7 +19,7 @@ Make sure you have installed:
   - `commons-io`
   - `poi-ooxml`
  
-  - ### **2 Setup and Run the Database**
+### **2 Setup and Run the Database**
 1. Create a new PostgreSQL database:
    ```sql
    CREATE DATABASE swift_db;
@@ -40,7 +40,7 @@ Make sure you have installed:
    spring.datasource.password=1234
    ```
 
-   ### **3 Run the Application**
+### **3 Run the Application**
 Use Maven to build and start the project:
 ```bash
 mvn clean package
