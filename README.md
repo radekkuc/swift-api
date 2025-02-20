@@ -42,9 +42,9 @@ Make sure you have installed:
 
 ### **3 Run the Application**
 Use Maven to build and start the project:
-```bash
-mvn clean package
-mvn spring-boot:run
+  ```bash
+  mvn clean package
+  mvn spring-boot:run
 ```
 Your API will be available at: **`http://localhost:8081`**
 
@@ -53,69 +53,69 @@ Your API will be available at: **`http://localhost:8081`**
 ## Running with Docker
 ### **1 Prerequisites**
 Ensure you have installed:
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/install/)
+  - [Docker](https://www.docker.com/)
+  - [Docker Compose](https://docs.docker.com/compose/install/)
 
 ### **2 Build and Run with Docker**
-```bash
-docker-compose up --build
-```
+  ```bash
+  docker-compose up --build
+  ```
 This starts **PostgreSQL** and **Swift API** in containers. The API will be available at **`http://localhost:8080`**.
 
 ### **3 Stopping the Containers**
 To stop the running containers, execute:
-```bash
-docker-compose down
-```
+  ```bash
+  docker-compose down
+  ```
 
 ---
 
 ## API Endpoints
 ### **Retrieve SWIFT Code Details**
-```http
-GET /v1/swift-codes/{swiftCode}
-```
+  ```http
+  GET /v1/swift-codes/{swiftCode}
+  ```
 
 ### **Retrieve All SWIFT Codes for a Country**
-```http
-GET /v1/swift-codes/country/{countryISO2code}
-```
+  ```http
+  GET /v1/swift-codes/country/{countryISO2code}
+  ```
 
 ### **Add a New SWIFT Code** (Using Terminal)
-```bash
-curl -X POST http://localhost:8081/v1/swift-codes \
-     -H "Content-Type: application/json" \
-     -d '{
-           "swiftCode": "TEST1234",
-           "bankName": "Test Bank",
-           "countryISO2": "US",
-           "countryName": "United States",
-           "address": "123 Test St"
-         }'
-```
+  ```bash
+  curl -X POST http://localhost:8081/v1/swift-codes \
+       -H "Content-Type: application/json" \
+       -d '{
+             "swiftCode": "TEST1234",
+             "bankName": "Test Bank",
+             "countryISO2": "US",
+             "countryName": "United States",
+             "address": "123 Test St"
+           }'
+  ```
 ### **Delete a SWIFT Code**
-```http
-DELETE /v1/swift-codes/{swiftCode}
-```
+  ```http
+  DELETE /v1/swift-codes/{swiftCode}
+  ```
 
 ### **Import SWIFT Codes from a File**
-```bash
-curl -X POST http://localhost:8081/v1/swift-codes/import \
-     -F "file=@path/to/your/swift_codes.xlsx"
-```
+  ```bash
+  curl -X POST http://localhost:8081/v1/swift-codes/import \
+       -F "file=@path/to/your/swift_codes.xlsx"
+  ```
 Replace `path/to/your/swift_codes.xlsx` with the actual file path.
 
 ---
 ## Testing the API
 After starting the application, you can test endpoints using:
-- **Postman**
-- **cURL**
-- Directly from the browser (`GET` requests only)
+  - **Postman**
+  - **cURL**
+  - Directly from the browser (`GET` requests only)
 
 Example test using **cURL**:
-```bash
-curl -X GET http://localhost:8081/v1/swift-codes/BCCSCLR1XXX
-```
+  ```bash
+  curl -X GET http://localhost:8081/v1/swift-codes/BCCSCLR1XXX
+  ```
 
 ## Troubleshooting
 ### **Database Issues**
