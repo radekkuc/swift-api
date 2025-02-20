@@ -39,3 +39,58 @@ Make sure you have installed:
    spring.datasource.username=postgres
    spring.datasource.password=1234
    ```
+
+   ### **3 Run the Application**
+Use Maven to build and start the project:
+```bash
+mvn clean package
+mvn spring-boot:run
+```
+Your API will be available at: **`http://localhost:8081`**
+
+---
+
+## Running with Docker
+### **1 Prerequisites**
+Ensure you have installed:
+- [Docker](https://www.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+### **2 Build and Run with Docker**
+```bash
+docker-compose up --build
+```
+This starts **PostgreSQL** and **Swift API** in containers. The API will be available at **`http://localhost:8080`**.
+
+### **3 Stopping the Containers**
+To stop the running containers, execute:
+```bash
+docker-compose down
+```
+
+---
+
+## API Endpoints
+### **Retrieve SWIFT Code Details**
+```http
+GET /v1/swift-codes/{swiftCode}
+```
+
+### **Retrieve All SWIFT Codes for a Country**
+```http
+GET /v1/swift-codes/country/{countryISO2code}
+```
+
+### **Add a New SWIFT Code** (Using Terminal)
+```bash
+curl -X POST http://localhost:8081/v1/swift-codes \
+     -H "Content-Type: application/json" \
+     -d '{
+           "swiftCode": "TEST1234",
+           "bankName": "Test Bank",
+           "countryISO2": "US",
+           "countryName": "United States",
+           "address": "123 Test St"
+         }'
+```
+
